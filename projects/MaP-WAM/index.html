@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MaP-WAM | Memory as Plans</title>
+  <meta name="description" content="Memory as Plans: World-Action Modeling with Memory-Grounded Planning">
+  <meta name="theme-color" content="#f4f1ea">
+  <meta property="og:title" content="MaP-WAM | Memory as Plans">
+  <meta property="og:description" content="Memory as Plans: World-Action Modeling with Memory-Grounded Planning">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sizhezhao.github.io/project/MaP-WAM/">
+  <meta property="og:image" content="https://sizhezhao.github.io/project/MaP-WAM/img/video-poster.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="../../assets/fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="img/video-poster.jpg">
+  <link rel="stylesheet" href="../../assets/css/site.css">
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    .results-table :is(th, td):nth-child(n + 2) { text-align: center; }
+  </style>
+  <script src="../../assets/js/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#top">Skip to content</a>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="site-brand" href="#top"><span class="brand-mark" aria-hidden="true"></span>MaP-WAM</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#abstract">Abstract</a>
+        <a href="#framework">Method</a>
+        <a href="#comparison">Results</a>
+        <a href="#citation">BibTeX</a>
+      </nav>
+      <a class="site-cta" href="https://arxiv.org/abs/2609.11561">Paper <span aria-hidden="true">&#8599;</span></a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="Paper">
+      <div class="hero-ambient" aria-hidden="true"></div>
+      <div class="hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>arXiv preprint &middot; 2026</p>
+          <h1><span class="title-accent">Memory</span><span>as Plans</span></h1>
+          <p class="hero-sub">World-Action Modeling with Memory-Grounded Planning</p>
+          <p class="hero-intro">Long-horizon robot policies that remember visual evidence, turn it into a plan, and execute with a fixed context length.</p>
+
+          <nav class="actions" aria-label="Project resources">
+            <a class="btn btn-primary" href="https://arxiv.org/abs/2609.11561">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3.5h7l4 4v13h-11z"></path><path d="M13.5 3.5v4h4"></path><path d="M9.5 12h5M9.5 15.5h5"></path></svg>
+              <span>Read paper</span>
+            </a>
+            <a class="btn" href="https://github.com/aipixel/MaP-WAM">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"></path></svg>
+              <span>Code</span>
+            </a>
+            <a class="btn" href="#top">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9z"></path><path d="m4.5 7.8 7.5 4.3 7.5-4.3M12 12.1V21"></path></svg>
+              <span>Model</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="hero-demo" aria-label="Project demo video">
+          <div class="demo-topline">
+            <span>Real-robot execution</span>
+            <span class="demo-index">01 / 01</span>
+          </div>
+          <div class="media-frame">
+            <video controls preload="metadata" playsinline poster="img/video-poster.jpg" width="1920" height="1080">
+              <source src="./video/video.mp4" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+          </div>
+          <div class="demo-footline">
+            <span><i aria-hidden="true"></i> Memory-grounded</span>
+            <span>Memory &rarr; Plan &rarr; Act</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-meta">
+        <div class="authors" aria-label="Authors">
+          <span><a href="#top">Sizhe Zhao<sup>1</sup></a>,</span>
+          <span><a href="https://haozhexie.com/about/">Haozhe Xie<sup>2</sup></a>,</span>
+          <span><a href="https://although-not-but.github.io/weiyu.github.io/">Weiyu Zhao<sup>1</sup></a>,</span>
+          <span><a href="#top">Chenchu Zhang<sup>1</sup></a>,</span>
+          <span><a href="#top">Huan Wang<sup>3</sup></a>,</span>
+          <span><a href="https://wangchenyang.cn/">Chenyang Wang<sup>1</sup></a>,</span>
+          <span><a href="#top">Qinglin Liu<sup>1</sup></a>,</span>
+          <span><a href="https://homepage.hit.edu.cn/zhangshengping">Shengping Zhang<sup>1,4</sup><svg class="mail-mark" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="2"></rect><path d="m4.5 7 7.5 5.5L19.5 7"></path></svg></a></span>
+        </div>
+
+        <div class="affiliation-row">
+          <p class="affiliations" aria-label="Affiliations">
+            <span><sup>1</sup> Harbin Institute of Technology</span>
+            <span><sup>2</sup> Nanyang Technological University</span>
+            <span><sup>3</sup> Shandong University</span>
+            <span><sup>4</sup> HIT (Weihai) Qingdao Research Institute</span>
+          </p>
+          <p class="corr-note">
+            <svg class="mail-mark" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="2"></rect><path d="m4.5 7 7.5 5.5L19.5 7"></path></svg>
+            <span>Corresponding author</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="signal-strip" aria-label="Key contributions">
+      <div class="signal-inner">
+        <div class="idea-flow" aria-label="Memory to action pipeline">
+          <span><b>01</b> Remember</span><i aria-hidden="true"></i>
+          <span><b>02</b> Plan</span><i aria-hidden="true"></i>
+          <span><b>03</b> Act</span>
+        </div>
+        <dl class="stats">
+          <div class="stat">
+            <dt>83.3<small>%</small></dt>
+            <dd>RMBench success</dd>
+          </div>
+          <div class="stat">
+            <dt>78.0<small>%</small></dt>
+            <dd>Real-robot success</dd>
+          </div>
+          <div class="stat">
+            <dt>O(1)</dt>
+            <dd>Executor context</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section concept-section defer" aria-labelledby="concept-title">
+      <div class="wrap wrap-media">
+        <div class="section-head section-head-wide" data-reveal>
+          <div>
+            <p class="eyebrow">The core idea</p>
+            <h2 id="concept-title">Don&rsquo;t replay the past.<br>Plan from it.</h2>
+          </div>
+          <p>MaP-WAM keeps sparse visual evidence from completed segments, then compresses that history into the plan the executor actually needs.</p>
+        </div>
+        <figure class="figure" data-reveal>
+          <picture>
+            <source srcset="img/teaser.webp" type="image/webp">
+            <img src="img/teaser.png" width="2210" height="775" alt="Comparison of memory mechanisms and the MaP-WAM framework" loading="lazy" decoding="async">
+          </picture>
+          <figcaption class="caption-grid">
+            <p><strong>(a) Language Memory</strong> compactly summarizes past interactions but may discard fine-grained visual evidence, as illustrated in <strong>(d)</strong>, impairing performance on tasks that require precise visual memory.</p>
+            <p><strong>(b) Growing Window Memory</strong> retains a window of recent observations, but extending the window to cover longer histories increases executor latency and GPU memory consumption, as shown in <strong>(e)</strong>, resulting in a trade-off between history coverage and execution efficiency.</p>
+            <p><strong>(c) MaP-WAM</strong> constructs long-term sparse visual context by retaining a few frames from each completed segment. A vision-language model and a causal world model then convert this context into a language-visual plan. Conditioned on this static plan, the World-Action-Progress model jointly predicts action chunks and progress, enabling adaptive segment transitions and memory updates from real observations while keeping the executor context length fixed.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section defer" id="abstract" aria-labelledby="abstract-title">
+      <div class="wrap">
+        <div class="prose" data-reveal>
+          <p class="eyebrow">Overview</p>
+          <h2 id="abstract-title">Abstract</h2>
+          <p class="lede">
+            Mainstream robotic policies often adopt a Markovian formulation, but many complex real-world manipulation tasks are inherently non-Markovian, requiring long-horizon memory beyond the current observation. Existing memory mechanisms often rely on language summaries, growing visual windows, or their combinations, and may therefore lose fine-grained visual evidence or face a trade-off between history coverage and execution efficiency. We introduce <strong>MaP-WAM</strong>, a Memory-as-Plans framework that decomposes memory-dependent world-action modeling into memory-grounded planning and plan-conditioned execution, and uses long-term multimodal episodic context as planning-time evidence rather than repeatedly conditioning the executor on the full history. MaP-WAM represents memory as completed segment records containing language instructions and sparse visual context, and converts this episodic memory into compact plans comprising the next segment-level language plan and corresponding visual guidance. A World-Action-Progress (WAP) model executes each plan over an unknown duration by jointly predicting action chunks and corresponding execution progress at inference time, calibrating predicted progress through plan-observation alignment for adaptive segment transitions and closed-loop context updates. MaP-WAM keeps the executor context length fixed, while structured attention further enables key-value caching in both planning and execution. MaP-WAM achieves state-of-the-art performance on RMBench with an 83.3% success rate and attains 78.0% success on real-robot tasks, while maintaining approximately constant executor inference latency as task history grows.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section defer" id="framework" aria-labelledby="framework-title">
+      <div class="wrap wrap-media">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Method</p>
+          <h2 id="framework-title">Framework</h2>
+        </div>
+        <figure class="figure" data-reveal>
+          <picture>
+            <source srcset="img/framework.webp" type="image/webp">
+            <img src="img/framework.png" width="2195" height="1165" alt="Overview of the MaP-WAM framework" loading="lazy" decoding="async">
+          </picture>
+          <figcaption>
+            <strong>Overview of MaP-WAM.</strong> Memory-grounded planning first predicts the next segment-level language plan <var>l&#770;<sub>k</sub></var> from the multimodal context, and then generates a visual plan <var>G&#770;<sub>k</sub></var> from the long-term visual context using a causal world model (CWM) as execution guidance. Conditioned on <var>G&#770;<sub>k</sub></var> and the progress condition <var>p&#770;<sub>t</sub></var>, the World-Action-Progress (WAP) model jointly models future visual dynamics, actions, and task progress. During deployment, the fixed plan prefix is cached and reused across action chunks until the predicted progress triggers the next planning stage. Plan-observation alignment further retrieves visual-plan frames near the predicted progress, matches them to the current observation, and uses the best-matching plan state to calibrate progress, mitigating error accumulation from recursive prediction over long executions. Upon segment transition, real execution observations are resampled into sparse visual evidence and appended to the episodic context.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section defer" id="comparison" aria-labelledby="comparison-title">
+      <div class="wrap wrap-media">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Results</p>
+          <h2 id="comparison-title">RMBench</h2>
+        </div>
+        <p class="table-intro" data-reveal>
+          <strong>Success rates on RMBench.</strong> Task Memory Complexity (TMC): M(1) and M(n) denote tasks requiring one and multiple task-relevant past observations, respectively. Bold and underlined entries indicate the best and second-best results.
+        </p>
+        <div class="table-scroll" data-reveal>
+          <table class="results-table">
+            <caption class="sr-only">Success rates on RMBench for each task and method. Bold entries are best, underlined entries are second-best.</caption>
+            <thead>
+              <tr>
+                <th scope="col">Tasks</th>
+                <th scope="col">TMC</th>
+                <th scope="col">DP</th>
+                <th scope="col">&pi;<sub>0.5</sub></th>
+                <th scope="col">X-VLA</th>
+                <th scope="col">Mem-0</th>
+                <th scope="col">WLA-0</th>
+                <th scope="col">LingBot-VA</th>
+                <th scope="col" class="ours">MaP-WAM<br>(Ours)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Observe and Pick Up</td>
+                <td>M(1)</td>
+                <td>1%</td>
+                <td>9%</td>
+                <td>9%</td>
+                <td>4%</td>
+                <td>-</td>
+                <td>3%</td>
+                <td class="ours best-cell"><strong>19%</strong></td>
+              </tr>
+              <tr>
+                <td>Rearrange Blocks</td>
+                <td>M(1)</td>
+                <td>0%</td>
+                <td>13%</td>
+                <td>13%</td>
+                <td class="second-cell"><span class="second-score">89%</span></td>
+                <td>-</td>
+                <td class="best-cell"><strong>100%</strong></td>
+                <td class="ours">66%</td>
+              </tr>
+              <tr>
+                <td>Put Back Block</td>
+                <td>M(1)</td>
+                <td>0%</td>
+                <td>11%</td>
+                <td>18%</td>
+                <td>90%</td>
+                <td>-</td>
+                <td class="best-cell"><strong>100%</strong></td>
+                <td class="ours best-cell"><strong>100%</strong></td>
+              </tr>
+              <tr>
+                <td>Swap Blocks</td>
+                <td>M(1)</td>
+                <td>11%</td>
+                <td>24%</td>
+                <td>16%</td>
+                <td>67%</td>
+                <td>-</td>
+                <td class="best-cell"><strong>99%</strong></td>
+                <td class="ours second-cell"><span class="second-score">97%</span></td>
+              </tr>
+              <tr>
+                <td>Swap T</td>
+                <td>M(1)</td>
+                <td>20%</td>
+                <td>15%</td>
+                <td>3%</td>
+                <td>14%</td>
+                <td>-</td>
+                <td class="second-cell"><span class="second-score">88%</span></td>
+                <td class="ours best-cell"><strong>96%</strong></td>
+              </tr>
+              <tr class="section-start">
+                <td>Battery Try</td>
+                <td>M(n)</td>
+                <td>10%</td>
+                <td>16%</td>
+                <td>26%</td>
+                <td>28%</td>
+                <td class="second-cell"><span class="second-score">45%</span></td>
+                <td>41%</td>
+                <td class="ours best-cell"><strong>82%</strong></td>
+              </tr>
+              <tr>
+                <td>Blocks Ranking Try</td>
+                <td>M(n)</td>
+                <td>10%</td>
+                <td>6%</td>
+                <td>1%</td>
+                <td>18%</td>
+                <td>23%</td>
+                <td class="best-cell"><strong>100%</strong></td>
+                <td class="ours second-cell"><span class="second-score">94%</span></td>
+              </tr>
+              <tr>
+                <td>Cover Blocks</td>
+                <td>M(n)</td>
+                <td>0%</td>
+                <td>0%</td>
+                <td>2%</td>
+                <td>68%</td>
+                <td class="second-cell"><span class="second-score">84%</span></td>
+                <td>79%</td>
+                <td class="ours best-cell"><strong>100%</strong></td>
+              </tr>
+              <tr>
+                <td>Press Button</td>
+                <td>M(n)</td>
+                <td>0%</td>
+                <td>0%</td>
+                <td>0%</td>
+                <td>0%</td>
+                <td>74%</td>
+                <td class="second-cell"><span class="second-score">84%</span></td>
+                <td class="ours best-cell"><strong>96%</strong></td>
+              </tr>
+              <tr class="section-start total-row">
+                <td><strong>Total Average</strong></td>
+                <td>-</td>
+                <td>5.8%</td>
+                <td>10.4%</td>
+                <td>9.8%</td>
+                <td>42.0%</td>
+                <td>-</td>
+                <td class="second-cell"><span class="second-score">77.1%</span></td>
+                <td class="ours best-cell"><strong>83.3%</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section defer" id="citation" aria-labelledby="citation-title">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Citation</p>
+          <h2 id="citation-title">BibTeX</h2>
+        </div>
+        <div class="bib" data-reveal>
+          <div class="bib-bar">
+            <span class="bib-label">Cite as</span>
+            <button class="copy-btn" type="button" data-copy hidden>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"></rect><path d="M15 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3"></path></svg>
+              <span>Copy</span>
+            </button>
+          </div>
+          <pre class="bib-code"><code>@article{mapwam,
+  <span class="k">author</span>  = {Sizhe Zhao and Haozhe Xie and Weiyu Zhao and Chenchu Zhang and
+             Huan Wang and Chenyang Wang and Qinglin Liu and Shengping Zhang},
+  <span class="k">title</span>   = {{Memory as Plans:} World-Action Modeling with Memory-Grounded Planning},
+  <span class="k">journal</span> = {arXiv 2609.11561},
+  <span class="k">year</span>    = {2026}
+}</code></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <span>MaP-WAM &middot; Memory as Plans: World-Action Modeling with Memory-Grounded Planning</span>
+      <a href="#top">Back to top</a>
+    </div>
+  </footer>
+</body>
+</html>
